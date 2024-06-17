@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: my-vite-react-app
+    env: static
+    buildCommand: npm run build
+    staticPublishPath: dist
