@@ -1,5 +1,4 @@
 import "./HourlyInfoBox.css";
-import WbSunnyIcon from "@mui/icons-material/WbSunny";
 
 export default function ({ weatherInfo }) {
   return (

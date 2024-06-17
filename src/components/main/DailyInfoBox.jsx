@@ -1,4 +1,3 @@
-import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import OpacityIcon from "@mui/icons-material/Opacity";
 import "./DailyInfoBox.css";
 
