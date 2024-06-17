@@ -15,7 +15,7 @@ export default function Footer() {
         <a href="/">Home</a> | <a href="/about">About Us</a> | <a href="/contact">Contact Us</a> |<a href="/terms">Terms of Service</a>{" "}
         |<a href="/privacy">Privacy Policy</a>
       </p>
-      <div class="social-media">
+      <div className="social-media">
         <a href="https://twitter.com/yourusername" target="_blank">
           Twitter
         </a>{" "}

@@ -15,7 +15,7 @@ export default function CurrentWeather({ locationInfo, getSunriseSunset }) {
   });
 
   const URL = "https://api.openweathermap.org/data/2.5/weather?";
-  const API_KEY = "63d75d532dbf79292efbe42b47dd394a";
+  const API_KEY = import.meta.env.VITE_API_KEY;
 
   const fetchWeatherInfo = async () => {
     // making url string
