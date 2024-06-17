@@ -10,7 +10,7 @@ export default function Navbar({ getLocationInfo, sunriseSunset }) {
   //returns true if day time and false if night time
   let dayTime = new Date() > sunriseSunset.sunrise * 1000 && new Date() < sunriseSunset.sunset * 1000 ? true : false;
 
-  const URL = "http://api.openweathermap.org/geo/1.0/direct?";
+  const URL = "https://api.openweathermap.org/geo/1.0/direct?";
   const API_KEY = import.meta.env.VITE_API_KEY;
 
   let lat, lon, city, state, country; // Preparing variable for sending argument to getLocationInfo
