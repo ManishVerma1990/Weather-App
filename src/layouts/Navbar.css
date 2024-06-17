@@ -1,0 +1,98 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.navbar-brand {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 1em;
+}
+.navbar-brand .WbSunnyIcon {
+  color: orange;
+  font-size: 1.8rem;
+}
+.navbar-brand .BedTimeIcon {
+  color: white;
+  font-size: 1.8rem;
+  margin-right: 0.5rem;
+}
+.navbar-brand span {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.searchBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.searchBox input {
+  height: 1rem;
+  width: 14rem;
+  border: none;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+}
+.searchBox input:focus {
+  outline: none;
+}
+.searchBox button {
+  margin: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 2rem;
+  border-radius: 1rem;
+  border: none;
+  background-color: red;
+  color: #fff;
+  padding: 0 1rem;
+  font-size: 1rem;
+}
+
+.time {
+  font-size: 2rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+@media (max-width: 800px) {
+  .searchBox input {
+    width: 9rem;
+    font-size: 0.8rem;
+  }
+  .searchBox button {
+    margin: 0.25rem;
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 700px) {
+  .navbar {
+    margin-bottom: 3rem;
+  }
+  .searchBox {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 4rem;
+  }
+}
+@media (max-width: 370px) {
+  .navbar-brand span {
+    font-size: 18px;
+  }
+  .time {
+    font-size: 1.5rem;
+  }
+  .searchBox {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 3rem;
+  }
+}

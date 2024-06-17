@@ -1,0 +1,51 @@
+.HourlyInfoBox {
+  min-width: fit-content;
+  background-color: #ffffff2b;
+  border-radius: 0.5em;
+  padding: 1em;
+  text-align: center;
+  line-height: 1.8rem;
+  margin-right: 1em;
+}
+.hourly-info-box-time {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+.hourly-info-box-temp {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+.hourly-info-box-icon .hourly-weather-icon {
+  width: 100%;
+  text-align: center;
+  font-size: 2.5rem;
+  color: orange;
+}
+.hourly-info-box-precipitation-1 {
+  font-weight: 450;
+}
+.hourly-info-box-precipitation-2 {
+  display: none;
+  font-weight: 450;
+}
+
+@media (max-width: 750px) {
+  .hourly-info-box-precipitation-1 {
+    display: none;
+  }
+  .hourly-info-box-precipitation-2 {
+    display: block;
+  }
+  .HourlyInfoBox {
+    padding: 0.5em;
+  }
+  .hourly-info-box-time {
+    font-size: 1.1rem;
+  }
+  .hourly-info-box-temp {
+    font-size: 1.1rem;
+  }
+  .hourly-info-box-icon .hourly-weather-icon {
+    font-size: 1.8rem;
+  }
+}

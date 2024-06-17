@@ -1,0 +1,17 @@
+.Footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+.Footer a {
+  color: #00aaff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+.Footer a:hover {
+  text-decoration: underline;
+}
+.Footer .social-media {
+  margin-top: 10px;
+}

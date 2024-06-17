@@ -1,0 +1,98 @@
+.DailyInfoBox {
+  background-color: #ffffff2b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  border-radius: 0.5em;
+  padding: 0.7em 2em;
+  margin-bottom: 1em;
+}
+.date {
+  line-height: 1.5rem;
+  /* min-width: 120px; */
+  flex: 1;
+}
+.date .daily-info-box-day {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.date .daily-info-box-date {
+  font-weight: 450;
+}
+
+.DailyInfoBox .temperature {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+.DailyInfoBox .temperature .icon {
+  color: orange;
+  font-size: 2.5rem;
+}
+.DailyInfoBox .temperature .temp {
+  margin-left: 0.3em;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.DailyInfoBox .description {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+  flex: 1;
+}
+
+.DailyInfoBox .precipitation {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  flex: 1;
+}
+
+.DailyInfoBox .precipitation .icon {
+  font-size: 2rem;
+}
+
+.DailyInfoBox .precipitation .ppt {
+  font-weight: 450;
+}
+
+@media (max-width: 900px) {
+  .DailyInfoBox {
+    padding: 0.5em 1em;
+    margin-bottom: 0.5em;
+  }
+  .date .daily-info-box-day {
+    font-size: 1.1rem;
+  }
+
+  .DailyInfoBox .temperature .icon {
+    font-size: 2rem;
+  }
+  .DailyInfoBox .temperature .temp {
+    font-size: 1.3rem;
+  }
+  .DailyInfoBox .description {
+    font-size: 0.9rem;
+  }
+  .DailyInfoBox .precipitation .icon {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .DailyInfoBox {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 10px;
+  }
+
+  .DailyInfoBox .description {
+    text-align: start;
+  }
+  .DailyInfoBox .temperature {
+    justify-content: end;
+  }
+}
