@@ -67,7 +67,7 @@ export default function CurrentWeather({ locationInfo, getSunriseSunset }) {
   }, [weather]);
 
   return (
-    <div className="CurrentWeather">
+    <div id="CurrentWeather" className="CurrentWeather">
       <div className="current-weather-title">Current Weather</div>
       <div className="location-info">
         {locationInfo.city || "Mumbai"}, {locationInfo.state || "Maharashtra"}

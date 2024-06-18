@@ -57,7 +57,7 @@ export default function Navbar({ getLocationInfo, sunriseSunset }) {
   };
 
   return (
-    <nav className="navbar">
+    <nav id="Navbar" className="navbar">
       <div className="navbar-brand">
         {/* sets icon based on day and night time */}
         {dayTime ? <WbSunnyIcon className="WbSunnyIcon" /> : <BedtimeIcon className="BedTimeIcon" />}

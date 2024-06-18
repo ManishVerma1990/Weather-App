@@ -1,13 +1,27 @@
 .Footer {
-  background-color: #333;
-  color: white;
+  background-color: #ffffff2b;
+  color: black;
   padding: 20px;
   text-align: center;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+  font-size: 1rem;
+  font-weight: 450;
+}
+
+.data-provider-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.data-provider-name img {
+  height: 2rem;
 }
 .Footer a {
-  color: #00aaff;
+  color: black;
   text-decoration: none;
   margin: 0 10px;
+  transition: all 200ms linear;
 }
 .Footer a:hover {
   text-decoration: underline;
