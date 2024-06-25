@@ -3,6 +3,7 @@ import { useState } from "react";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import BedtimeIcon from "@mui/icons-material/Bedtime";
 import SearchIcon from "@mui/icons-material/Search";
+import Alert from "@mui/material/Alert";
 
 export default function Navbar({ getLocationInfo, sunriseSunset }) {
   let [location, setLocation] = useState("Mumbai");
@@ -46,33 +47,50 @@ export default function Navbar({ getLocationInfo, sunriseSunset }) {
 
   const handleClick = async () => {
     let locationInfo = await fetchLocationInfo();
+    // alert.style.display = "none";
 
-    setLocationInfo(locationInfo);
+    if (locationInfo.length === 0) {
+      const alert = document.querySelector(".alert");
+      alert.classList.remove("alert");
+    } else {
+      setLocationInfo(locationInfo);
 
-    //Sending coordinates to parent (app.jsx)
+      //Sending coordinates to parent (app.jsx)
+      getLocationInfo(lat, lon, city, state, country);
 
-    getLocationInfo(lat, lon, city, state, country);
+      setLocation("");
+    }
+  };
 
-    setLocation("");
+  const handleAlertClose = () => {
+    const alert = document.querySelector("#alert");
+    alert.classList.add("alert");
   };
 
   return (
-    <nav id="Navbar" className="navbar">
-      <div className="navbar-brand">
-        {/* sets icon based on day and night time */}
-        {dayTime ? <WbSunnyIcon className="WbSunnyIcon" /> : <BedtimeIcon className="BedTimeIcon" />}
-        <span>Weather App</span>
+    <>
+      <nav id="Navbar" className="navbar">
+        <div className="navbar-brand">
+          {/* sets icon based on day and night time */}
+          {dayTime ? <WbSunnyIcon className="WbSunnyIcon" /> : <BedtimeIcon className="BedTimeIcon" />}
+          <span>Weather App</span>
+        </div>
+        <div className="searchBox">
+          <input onChange={updateLocation} type="text" name="search" id="search" placeholder="Search" value={location} />
+          <button onClick={handleClick}>
+            <SearchIcon />
+            Search
+          </button>
+        </div>
+        <div className="time">
+          {new Date().getHours().toString().padStart(2, "0")} : {new Date().getMinutes().toString().padStart(2, "0")}
+        </div>
+      </nav>
+      <div id="alert" className="alert">
+        <Alert onClose={handleAlertClose} variant="filled" severity="error">
+          <span>No location found with the name "{location}"</span>
+        </Alert>
       </div>
-      <div className="searchBox">
-        <input onChange={updateLocation} type="text" name="search" id="search" placeholder="Search" value={location} />
-        <button onClick={handleClick}>
-          <SearchIcon />
-          Search
-        </button>
-      </div>
-      <div className="time">
-        {new Date().getHours().toString().padStart(2, "0")} : {new Date().getMinutes().toString().padStart(2, "0")}
-      </div>
-    </nav>
+    </>
   );
 }

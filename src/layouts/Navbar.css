@@ -62,6 +62,10 @@
   font-weight: 600;
 }
 
+.alert {
+  display: none !important;
+}
+
 @media (max-width: 800px) {
   .searchBox input {
     width: 9rem;
