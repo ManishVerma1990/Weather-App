@@ -3,8 +3,6 @@ import Main from "./layouts/Main.jsx";
 import Footer from "./layouts/Footer.jsx";
 import { useState } from "react";
 
-// 19.0785451 72.878176
-
 function App() {
   let [locationInfo, setLocationInfo] = useState({ lat: "19.0785451", lon: "72.878176", city: "", state: "", country: "" });
   let [sunriseSunset, setSunriseSunset] = useState({ sunrise: 0, sunset: 0 });

@@ -1,5 +1,4 @@
 .HourlyWeather {
-  /* background-color: #ffffff2b; */
   border-radius: 0.5em;
   padding: 1.5em 3em;
   margin-top: 2em;
@@ -22,16 +21,16 @@
 }
 
 .hourly-info-box-container::-webkit-scrollbar-track {
-  background-color: #ffffff2b;
+  background-color: #ffffff60;
 }
 
 .hourly-info-box-container::-webkit-scrollbar-thumb {
-  background-color: #ffffff2b;
+  background-color: #ffffff60;
   border-radius: 6px;
 }
 
 .hourly-info-box-container::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #959595;
 }
 
 .arrow-btn-container {

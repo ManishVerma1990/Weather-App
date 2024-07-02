@@ -1,6 +1,5 @@
 .Footer {
-  background-color: #ffffff2b;
-  color: black;
+  background-color: #ffffff60;
   padding: 20px;
   text-align: center;
   border-top-left-radius: 0.5em;
@@ -18,8 +17,8 @@
   height: 2rem;
 }
 .Footer a {
-  color: black;
   text-decoration: none;
+  color: inherit;
   margin: 0 10px;
   transition: all 200ms linear;
 }

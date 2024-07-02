@@ -18,7 +18,7 @@ export default function DailyInfoBox({ weatherInfo }) {
       <div className="description">{weatherInfo.weatherDesc} </div>
       <div className="precipitation">
         <OpacityIcon className="icon" />
-        <span className="ppt">{weatherInfo.precipitation.toString().padStart(5, "0")}%</span>
+        <span className="ppt">{weatherInfo.precipitation.toString().padStart(4, "0")}%</span>
       </div>
     </div>
   );
