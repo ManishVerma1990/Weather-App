@@ -86,6 +86,7 @@ export default function DailyForecast({ locationInfo }) {
 
   // calling functions when component renders once, and again when "locationInfo" changes
   useEffect(() => {
+    if (locationInfo.lat === "") return;
     getWeatherInfo();
   }, [locationInfo]);
 

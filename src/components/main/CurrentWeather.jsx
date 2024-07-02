@@ -60,6 +60,7 @@ export default function CurrentWeather({ locationInfo, getSunriseSunset }) {
 
   // calling functions when component renders once, and again when "locationInfo" changes
   useEffect(() => {
+    if (locationInfo.lat === "") return;
     getWeatherInfo();
   }, [locationInfo]);
   useEffect(() => {
@@ -70,7 +71,7 @@ export default function CurrentWeather({ locationInfo, getSunriseSunset }) {
     <div id="CurrentWeather" className="CurrentWeather">
       <div className="current-weather-title">Current Weather</div>
       <div className="location-info">
-        {locationInfo.city || "Mumbai"}, {locationInfo.state || "Maharashtra"}
+        {locationInfo.city}, {locationInfo.state}
       </div>
       <div className="info-box">
         <div className="info-box-content-2">
