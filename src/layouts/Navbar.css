@@ -56,6 +56,28 @@
   font-size: 1rem;
 }
 
+.searchBox #city-suggestions {
+  border-radius: 0.5rem;
+  background-color: white;
+  color: black;
+  width: 23.5rem;
+  position: absolute;
+  top: 4rem;
+  z-index: 100;
+}
+.searchBox #city-suggestions ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.searchBox #city-suggestions ul li {
+  line-height: 1.6rem;
+  padding: 0 0.5rem;
+}
+.searchBox #city-suggestions ul li:hover {
+  background-color: #cacaca;
+}
+
 .time {
   font-size: 2rem;
   color: #fff;
@@ -70,6 +92,9 @@
   .searchBox input {
     width: 9rem;
     font-size: 0.8rem;
+  }
+  .searchBox #city-suggestions {
+    width: 17.3rem;
   }
   .searchBox button {
     margin: 0.25rem;

@@ -4,11 +4,13 @@ import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import BedtimeIcon from "@mui/icons-material/Bedtime";
 import SearchIcon from "@mui/icons-material/Search";
 import Alert from "@mui/material/Alert";
+import cities from "../../public/citiesList";
 
 export default function Navbar({ getLocationInfo, sunriseSunset }) {
   let [location, setLocation] = useState("");
   let [latitude, setLatitude] = useState();
   let [longitude, setLongitude] = useState();
+  let [citySuggestions, setCitySuggestions] = useState([]);
 
   //returns true if day time and false if night time
   let dayTime = new Date() > sunriseSunset.sunrise * 1000 && new Date() < sunriseSunset.sunset * 1000 ? true : false;
@@ -108,6 +110,26 @@ export default function Navbar({ getLocationInfo, sunriseSunset }) {
       console.log("An error occured:", err);
     }
   };
+
+  const updateCitySuggestions = (e) => {
+    let input = e.target.value;
+
+    if (input) {
+      const filteredCities = cities.filter((city) => city.toLowerCase().includes(input));
+      const topCities = filteredCities.slice(0, 10);
+      // console.log(topCities);
+      setCitySuggestions(topCities);
+      console.log(citySuggestions);
+    } else {
+      setCitySuggestions([]);
+    }
+  };
+  const pasteToSearch = (event) => {
+    console.log(event.target.innerText);
+    setLocation(event.target.innerText);
+    setCitySuggestions([]);
+  };
+
   useEffect(() => {
     setUserLocation();
   }, [latitude, longitude]);
@@ -121,12 +143,33 @@ export default function Navbar({ getLocationInfo, sunriseSunset }) {
           <span>Weather App</span>
         </div>
         <div className="searchBox">
-          <input onChange={updateLocation} type="text" name="search" id="search" placeholder="Search" value={location} />
+          <input
+            onChange={(e) => {
+              updateLocation(e);
+              updateCitySuggestions(e);
+            }}
+            type="text"
+            name="search"
+            id="search"
+            placeholder="Search"
+            value={location}
+            autoComplete="off"
+          />
           <button onClick={handleClick}>
             <SearchIcon />
             Search
           </button>
+          <div id="city-suggestions">
+            <ul>
+              {citySuggestions.map((city, index) => (
+                <li key={index} onClick={pasteToSearch}>
+                  {city}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
+
         <div className="time">
           {new Date().getHours().toString().padStart(2, "0")} : {new Date().getMinutes().toString().padStart(2, "0")}
         </div>
