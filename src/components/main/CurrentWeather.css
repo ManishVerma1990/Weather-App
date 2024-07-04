@@ -6,6 +6,7 @@
   border-radius: 0.5em;
   padding: 1.5em 3em;
   width: fit-content;
+  z-index: -1;
 }
 .current-weather-title {
   font-size: 1.4rem;

@@ -7,10 +7,10 @@ import Alert from "@mui/material/Alert";
 import cities from "../../public/citiesList";
 
 export default function Navbar({ getLocationInfo, sunriseSunset }) {
-  let [location, setLocation] = useState("");
-  let [latitude, setLatitude] = useState();
-  let [longitude, setLongitude] = useState();
-  let [citySuggestions, setCitySuggestions] = useState([]);
+  let [location, setLocation] = useState(""); //value in searchbox
+  let [latitude, setLatitude] = useState(); //latitude of user current location
+  let [longitude, setLongitude] = useState(); //latitude of user current location
+  let [citySuggestions, setCitySuggestions] = useState([]); //contains array of 10 city, get updated when user inputs in searchbox
 
   //returns true if day time and false if night time
   let dayTime = new Date() > sunriseSunset.sunrise * 1000 && new Date() < sunriseSunset.sunset * 1000 ? true : false;
@@ -48,11 +48,11 @@ export default function Navbar({ getLocationInfo, sunriseSunset }) {
     country = locationInfo[0].country;
   };
 
+  //button click of searchbox
   const handleClick = async () => {
     if (!location) return;
 
     let locationInfo = await fetchLocationInfo();
-    // alert.style.display = "none";
 
     if (locationInfo?.length === 0) {
       const alert = document.querySelector(".alert");
@@ -67,6 +67,7 @@ export default function Navbar({ getLocationInfo, sunriseSunset }) {
     }
   };
 
+  //closes alertbox when clicked on cross
   const handleAlertClose = () => {
     const alert = document.querySelector("#alert");
     alert.classList.add("alert");
@@ -111,9 +112,9 @@ export default function Navbar({ getLocationInfo, sunriseSunset }) {
     }
   };
 
+  //functions for city suggestions, will suggest upto 10 cities
   const updateCitySuggestions = (e) => {
     let input = e.target.value;
-
     if (input) {
       const filteredCities = cities.filter((city) => city.toLowerCase().includes(input));
       const topCities = filteredCities.slice(0, 10);
@@ -124,6 +125,7 @@ export default function Navbar({ getLocationInfo, sunriseSunset }) {
       setCitySuggestions([]);
     }
   };
+  //pastes value of list to searchbox on click
   const pasteToSearch = (event) => {
     console.log(event.target.innerText);
     setLocation(event.target.innerText);
@@ -159,6 +161,7 @@ export default function Navbar({ getLocationInfo, sunriseSunset }) {
             <SearchIcon />
             Search
           </button>
+          {/* shows 10 cities according to user input */}
           <div id="city-suggestions">
             <ul>
               {citySuggestions.map((city, index) => (
