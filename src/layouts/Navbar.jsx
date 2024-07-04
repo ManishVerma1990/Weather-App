@@ -148,6 +148,8 @@ export default function Navbar({ getLocationInfo, sunriseSunset }) {
           <input
             onChange={(e) => {
               updateLocation(e);
+            }}
+            onInput={(e) => {
               updateCitySuggestions(e);
             }}
             type="text"
